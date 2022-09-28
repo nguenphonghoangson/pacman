@@ -38,20 +38,21 @@ class pacman{
     
     keypress(key){
         if (key == 37) {
-            this.turnTo = new vector(0, -1);
+            this.turnTo = new vector(-1, 0);
             this.turn = true;
          }
         if (key == 39) {
-            this.turnTo = new vector(0, 1);
-            this.turn = true;
-        }
-        if (key == 38) {
             this.turnTo = new vector(1, 0);
             this.turn = true;
         }
-        if (key == 40) {
-            this.turnTo = new vector(-1, 0);
+        if (key == 38) {
+            this.turnTo = new vector(0, -1);
             this.turn = true;
+        }
+        if (key == 40) {
+            this.turnTo = new vector(0, 1);
+            this.turn = true;
+            
         }
     }
   
