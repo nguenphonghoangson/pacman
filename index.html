@@ -5,8 +5,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <p>nguyễn phong hoàng sơn đẹp trai</p>
+<body onload="startGame()">
+    <canvas id="canvas"></canvas>
+<script src="pacman.js"></script>
+<script src="vector.js"></script>
+<script src="tile.js"></script>
+<script src="map.js"></script>
+
+
+<script>
+function startGame() {
+    myGameArea.start();
+}
+var myGameArea = {
+    canvas : document.getElementById("canvas"),
+    start : function() {
+        this.canvas.width = 448;
+        this.canvas.height = 496;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.frameNo = 0;
+        this.interval = setInterval(updateGameArea, 20);
+        window.addEventListener('keydown', function (e) {
+            myGameArea.key = e.keyCode;
+        })
+        window.addEventListener('keyup', function (e) {
+            myGameArea.key = false;
+        })
+        },
+    clear:function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+}
+pacman= new pacman();
+map=new map();
+function updateGameArea() {
+pacman.keypress(myGameArea.key);
+myGameArea.clear();
+map.drawMap();
+tiles=map.tiles;
+pacman.show();
+if (checkPosition())
+    pacman.move();
+}
+function checkPosition(){
+    if  ((pacman.pos.x-8)%16==0 && (pacman.pos.y-8)%16 == 0){
+        positon = new vector((pacman.pos.x-8)/16,(pacman.pos.y-8)/16)    
+        if ( !tiles[positon.y][positon.x].EATEN){
+            tiles[positon.y][positon.x].EATEN=true
+        }
+        positonToCheck = new vector(positon.x+pacman.turnTo.x, positon.y+pacman.turnTo.y)
+        if (tiles[positonToCheck.y][positonToCheck.x].WALL){
+            if (tiles[positon.y+pacman.vel.y][positon.x+pacman.vel.x].WALL)
+                return false
+            else return true
+        }
+          
+        else{
+            pacman.vel=pacman.turnTo
+            return true
+        }
+           
+    } 
+    else return true
+}
+</script>
 </body>
+
 </html>
