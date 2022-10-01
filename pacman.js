@@ -1,5 +1,5 @@
 class pacman{
-    _pos = new vector(20* 16 + 8, 20 * 16 + 8);
+    _pos = new vector(20* 16 + 8, 20 * 16+30 + 8);
     get pos() {
         return this._pos;
     }
@@ -26,6 +26,9 @@ class pacman{
     show(){
         var canvas=document.getElementById("canvas");
         var ctx = canvas.getContext("2d");
+        // ctx.font=("40px serif")
+        // ctx.fillStyle=("white")
+        // ctx.fillText("Score: ", 10,40)
         ctx.fillStyle = "#FFD700"
         ctx.beginPath();
         ctx.ellipse(this.pos.x, this.pos.y, 10, 10, Math.PI, 0, 2 * Math.PI);

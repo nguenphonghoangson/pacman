@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pacman</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 </head>
 <body onload="startGame()">
     <canvas id="canvas"></canvas>
@@ -17,17 +20,17 @@
 
 <script>
 function startGame() {
-    myGameArea.start()
+        myGameArea.start()
 }
 var myGameArea = {
     canvas : document.getElementById("canvas"),
     start : function() {
         this.canvas.width = 1280
-        this.canvas.height = 480
+        this.canvas.height = 480+30
         this.context = this.canvas.getContext("2d")
-        document.body.insertBefore(this.canvas, document.body.childNodes[0])
         this.frameNo = 0
-        this.interval = setInterval(updateGameArea, 15)
+        this.interval = setInterval(updateGameArea, 10)
+
         window.addEventListener('keydown', function (e) {
             myGameArea.key = e.keyCode
         })
@@ -41,18 +44,26 @@ var myGameArea = {
 }
 pacman= new pacman()
 map=new map()
+function score(){
+ctx = myGameArea.context;
+ctx.font=("30px VT323")
+ctx.fillStyle=("White")
+ctx.fillText("Score: ", 10,25)
+}
 function updateGameArea() {
+
 pacman.keypress(myGameArea.key)
 myGameArea.clear()
 map.drawMap()
+score()
 tiles=map.tiles
 pacman.show()
 if (checkPosition())
     pacman.move()
 }
 function checkPosition(){
-    if  ((pacman.pos.x-8)%16==0 && (pacman.pos.y-8)%16 == 0){
-        positon = new vector((pacman.pos.x-8)/16,(pacman.pos.y-8)/16)   
+    if  ((pacman.pos.x-8)%16==0 && (pacman.pos.y-8-30)%16 == 0){
+        positon = new vector((pacman.pos.x-8)/16,(pacman.pos.y-8-30)/16)   
         if ( !tiles[positon.y][positon.x].EATEN){
             tiles[positon.y][positon.x].EATEN=true
             

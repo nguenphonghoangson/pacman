@@ -43,7 +43,7 @@ class map{
         this.tilesRepresentation.forEach((row,j) => {
             this.tiles.push([])
             row.forEach((col,i) => {
-                this.tiles[j].push(new tile(16*i +8, 16*j+8))
+                this.tiles[j].push(new tile(16*i+8, 16*j+8+30))
                 if (col==1){
                     this.tiles[j][i].WALL = true
                 }

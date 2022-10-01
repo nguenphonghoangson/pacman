@@ -1,29 +1,32 @@
 body{
-    background-image:url(background1.png) ;
+    background-image:url(4424991.png) ;
      background-repeat: no-repeat;
     
 }
 canvas{
     position: absolute;
     opacity: 1.5;
-    top:50%;
+    top:40%;
     left: 50%;
     background-color: black;
     transform: translate(-50%, -50%);
     background-image:url(map.png) ;
+    background-repeat: no-repeat;
+    background-position: bottom;
 }
 @media only screen and (max-width: 1600px) {
     body {
-        background-image:url(background.png) ;
+        background-image:url(442499.png) ;
         background-repeat: no-repeat;
+
     }
-    canvas{
+    /* canvas{
         position: absolute;
         opacity: 1.5;
-        top:50%;
+        top:40%;
         left: 50%;
         background-color: black;
         transform: translate(-50%, -50%);
         background-image:url(map.png) ;
-    }
+    } */
   }
