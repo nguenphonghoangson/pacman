@@ -1,5 +1,5 @@
 class pacman{
-    _pos = new vector(13 * 16 + 8, 23 * 16 + 8);
+    _pos = new vector(20* 16 + 8, 20 * 16 + 8);
     get pos() {
         return this._pos;
     }

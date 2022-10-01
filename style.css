@@ -1,6 +1,6 @@
 body{
-    background-color: black;
-    background-image:url(background.jpg) ;
+    background-image:url(background1.png) ;
+     background-repeat: no-repeat;
     
 }
 canvas{
@@ -8,7 +8,22 @@ canvas{
     opacity: 1.5;
     top:50%;
     left: 50%;
+    background-color: black;
     transform: translate(-50%, -50%);
-    background-image:url(map2.png) ;
-    
+    background-image:url(map.png) ;
 }
+@media only screen and (max-width: 1600px) {
+    body {
+        background-image:url(background.png) ;
+        background-repeat: no-repeat;
+    }
+    canvas{
+        position: absolute;
+        opacity: 1.5;
+        top:50%;
+        left: 50%;
+        background-color: black;
+        transform: translate(-50%, -50%);
+        background-image:url(map.png) ;
+    }
+  }
