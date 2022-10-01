@@ -48,7 +48,7 @@ function score(){
 ctx = myGameArea.context;
 ctx.font=("30px VT323")
 ctx.fillStyle=("White")
-ctx.fillText("Score: ", 10,25)
+ctx.fillText("Score: "+pacman.score, 10,25)
 }
 function updateGameArea() {
 
@@ -66,7 +66,7 @@ function checkPosition(){
         positon = new vector((pacman.pos.x-8)/16,(pacman.pos.y-8-30)/16)   
         if ( !tiles[positon.y][positon.x].EATEN){
             tiles[positon.y][positon.x].EATEN=true
-            
+            pacman.score++;
         }
         positonToCheck = new vector(positon.x+pacman.turnTo.x, positon.y+pacman.turnTo.y)
         if (tiles[positonToCheck.y][positonToCheck.x].WALL){

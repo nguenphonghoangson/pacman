@@ -20,6 +20,13 @@ class pacman{
     set turnTo(value) {
         this._turnTo = value;
     }
+    _score=0;
+    get score() {
+        return this._score;
+    }
+    set score(value) {
+        this._score = value;
+    }
     constructor(){
 
     }
