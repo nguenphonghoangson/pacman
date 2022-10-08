@@ -47,7 +47,7 @@ class tile{
             if (!this.EATEN)
             {
                 ctx.beginPath()
-                ctx.ellipse(this.x-2, this.y-2, 2, 2, Math.PI, 0, 2 * Math.PI)
+                ctx.ellipse(this.x, this.y, 2, 2, Math.PI, 0, 2 * Math.PI)
                 ctx.stroke()
                 ctx.fill()
             }
@@ -56,7 +56,7 @@ class tile{
         else{
             if (this.BIGDOT) {
                 ctx.beginPath()
-                ctx.ellipse(this.x-2, this.y-2, 5, 5, Math.PI, 0, 2 * Math.PI)
+                ctx.ellipse(this.x, this.y, 5, 5, Math.PI, 0, 2 * Math.PI)
                 ctx.stroke()
                 ctx.fill()
             }
