@@ -8,7 +8,7 @@ start : function() {
     this.canvas.height = 480+30
     this.context = this.canvas.getContext("2d")
     this.frameNo = 0
-    this.interval = setInterval(updateGameArea, 16)
+    this.interval = setInterval(updateGameArea, 10)
 
     window.addEventListener('keydown', function (e) {
         myGameArea.key = e.keyCode
